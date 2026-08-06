@@ -238,10 +238,98 @@
     s'il y a beaucoup d'oeuvres d'art dans la zone, dans une proximité spécifique. Si j'ai je temps, je vais
   régler ce problème avec l'aide de Christian CETTE SEMAINE. Sinon début semaine prochaine.
     <br>
-    Voici les photos de mon progrès! Je suis super fier `de moi-même! <br>
+    Voici les photos de mon progrès! Je suis super fier de moi-même! <br>
     <img src="notif-back.png" alt="Notification1" style="max-width: 50vw; margin-right: 20%;"/>
     <img src="notif-map.png" alt="Notification2" style="max-width: 50vw;"/>
     </p>
+
+      <h2>Semaine 12 (20-26 Juillet)</h2>
+      <h3>Notifs codage</h3>
+      <p>
+        Les notifications sont presque complètement fonctionnelles mais uniquement en mode foreground (dans l'application). 
+        Lors de notre réunion de conception avec Barbara, qui vient tout juste de revenir de vacances, nous avons 
+        finalisé le design des notifications : nous avons décidé d'intégrer une mascotte MONA amicale et de 
+        supprimer le doublon "MONA" qui apparaissait deux fois dans chaque notification. Cependant, 
+        les notifications en arrière-plan ne fonctionnent pas encore et nécessitent davantage de travail. 
+        Lors de cette même réunion de conception, nous avons également prévu d'ajouter une nouvelle page dans 
+        l'application dédiée aux préférences d'horaire des notifications. Par défaut, cette plage sera définie 
+        de 21h à 9h (heures de silence), mais les utilisateurs pourront personnaliser ces horaires selon leurs 
+        préférences personnelles. J'attends la confirmation de l'équipe de conception pour finaliser le design 
+        de cette page, après quoi je pourrai commencer. 
+        <br><br>
+        <h3>Documentation et recherche: </h3>
+        J'ai également commencé à travailler sur la documentation technique pour l'implémentation des 
+        notifications en arrière-plan, en particulier sur la manière de gérer les services de localisation 
+        persistants sur iOS et Android.
+        <h3>Test et problème rencontré</h3>
+        <br>
+        Finalement, j'ai testé les notifications mais j'ai trouvé des nouveaux bugs: elles se font à chaque
+        2 minutes au lieu de 30 secondes (testing time mode). Après avoir fait des recherches, j'ai trouvé que 
+        c'est un problème de mon code, j'ai pas mis autant de conditions pour arrêter les 
+        notifications "temporairement" pour un cooldown time (30 secondes ici). 
+        Je vais donc chercher une autre solution pour régler ce problème.
+      </p>
+
+      <h2>Semaine 13 (27 Juillet - 2 Août)</h2>
+      <h3>Notification foreground complétée + background notifs code:</h3>
+      <p>
+        Cette semaine, j'ai concentré mes efforts sur recherche pour implémenter les notifications en arrière-plan
+        sur Android et Apple (Apple sont beaucoup plus restrictifs), en parallèle au travail sur foreground.
+        J'ai créé la documentation interne dans backgroundNotifications.ts décrivant 
+        son architecture, puis procédé aux modifications nécessaires des fichiers de configuration 
+        spécifiques à chaque plateforme : le Info.plist pour iOS et le AndroidManifest.xml pour Android afin 
+        d'activer les services de localisation persistants. 
+        <br>
+        <h3>Recherche et implémentation: </h3>
+        J'ai ensuite intégré le plugin @capacitor-community/background-geolocation qui fournit 
+        exactement les fonctionnalités natives dont 
+        nous avions besoin. Cependant, comme anticipé, ce que je n'ai pas pu finaliser concerne l'étape 
+        CocoaPods pour iOS et les réglages Xcode car ils nécessitent un environnement macOS. 
+        Sur macOS, il faudra donc faire un cd ios/App suivi de pod install puis ouvrir App.xcworkspace pour 
+        activer dans Xcode les Background Modes → Location Updates et configurer la demande d'autorisation 
+        "Toujours". Donc quand je finis, je vais documenter les etapes pour que l'équipe puisse les suivre sur macOS.
+        Je vais aussi essayer de travailler avec Christian pour tout tester sur son iOS.
+      </p>
+      <h3>UX/UI discuté avec Barbara:</h3>
+      <p>J'ai obtenu l'accès à Mobbin où j'ai effectué des tests benchmarks avec deux applications de référence : 
+        Slack pour analyser leurs interfaces de préférences de notifications modernes et l'application native 
+        d'alarme iOS pour étudier leurs systèmes de timers et de sélecteurs d'horaires. Ces analyses ont été 
+        cruciales pour comprendre les meilleures pratiques en matière d'UX pour les préférences de notifications 
+        utilisateur.
+      </p>
+      <p>
+        <img src="Mobbin.png" alt="Mobbin Testbench: Sla" style="max-width: 50vw; margin: 10px 0;">
+      </p>
+      <p>
+        En parallèle, j'ai utilisé Canva pour créer une maquette détaillée de l'interface des préférences 
+        de notifications de l'application Mona, en intégrant nos mascottes Figma existantes. Cette 
+        maquette permet de visualiser comment les éléments de notification préférés (mascotte MONA,
+        emojis, texte explicatif) s'intégreraient harmonieusement dans l'expérience globale de l'app, 
+        tout en respectant les principes d'accessibilité et de clarté.
+      </p>
+      <p>
+        <img src="My design.png" alt="Canva Design: Notification Preferences Interface with MONA Mascots" style="max-width: 50vw; margin: 10px 0;">
+      </p>
+
+      <h2>Semaine 14 (3-9 Août)</h2>
+      <h3>Notifications arrière plan: implementation et testes</h3>
+      <p>
+        Cette semaine, j'ai finalisé l'implémentation des notifications en arrière-plan sur Android. J'ai testé 
+        le code sur un appareil simulé sur Android Studio et confirmé que les notifications se déclenchent 
+        correctement même lorsque l'application est en arrière-plan ou fermée. J'ai également documenté 
+        les étapes nécessaires pour configurer les services de localisation persistants sur Android, 
+        afin que l'équipe puisse reproduire le processus sur d'autres appareils.
+        <br><br>
+        Voici les images de la notification en arrière-plan sur Android:
+        <img src="background-notif-android.png" alt="Background Notification on Android" style="max-width: 50vw; margin: 10px 0;">
+        en plus, les permissions dont là officiellement! Si l'appli est nouvellement téléchargée, l'utilisateur va 
+        finalement recevoir une notification pour accepter les permissions de géolocalisation ("Always allow") 
+        et de notifications. Vu que dan mon simulateur, l'application est déjà installée, j'ai dû faire une 
+        activation dans "Settings → Apps → Mona → Permissions" pour les activer:
+      </p>
+        <img src="always-allow.png" alt="Background Notification Permissions on Android" style="max-width: 50vw; margin: 10px 0;">
+        
+      <h3>pour jonathan : ADD PHOTO BACKGROUND LOCATION ICON</h3>
+
 </body>
 </html>
-

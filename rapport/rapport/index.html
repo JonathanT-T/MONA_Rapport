@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IFT 3150 - Jonathan Tannous - Projet Mona</title>
+  <style>
+    
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #24292e;
+            background-color: #fff;
+            padding: 20px;
+        }
+        
+        h1 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid #eaecef;
+        }
+        .feedback {
+            padding: 5px;
+            margin-top: 5px;
+        }
+    
+  </style>
+</head>
+<body>
+
+  <div style="display: flex; align-items: center; gap: 20px;">
+    <h1 style="margin: 0;">IFT 3150 Jonathan Tannous</h1>
+    <img src="logo.jpg" alt="LogoMona" style="height: 60px;" />
+  </div>
+
+  <p>
+    Le projet Mona est une application mobile qui permet de découvrir des oeuvres 
+    d'art public à Montréal. L'application utilise la géolocalisation pour permettre 
+    à l'utilisateur de découvrir des oeuvres d'art à proximité et de les ajouter à sa collection.
+    En IFT 3150, je travaille comme développeur front-end avec la Maison MONA. 
+    En premier, je vais me familiariser avec le code existant et ensuite de travailler 
+    avec le reste de l'équipe pour améliorer/embellir l'interface du serveur.
+  </p>
+
+  <hr>
+
+  <h1 class="Rap_Heb">Rapport hebdomadaires</h1>
+
+
+  <h2>Semaine 1 (4-10 Mai)</h2>
+
+  <p>
+    Première rencontre avec Lena et Mariama. On s'est fait connaissance et Lena nous a
+    présenté Maison MONA et l'application MONA. Je vais travailler sur le côté front end de l'app,
+    et Mariama va faire plus de travail côté données. J'ai déjà téléchargé l'application et
+    j'ai pu uploader deux photos d'œuvres d'art public à Montréal. J'ai aussi contacté Christian
+    pour lui demander de l'aide pour installer le projet sur mon ordinateur, et donc on se rencontre
+    mercredi en ligne pour qu'il m'aide avec l'installation du code base. J'ai aussi téléchargé 
+    l'application Element pour communiquer avec les autres membres de l'équipe. Je ferai des
+    changements de design sur ce rapport aussi au fur et à mesure que je travaille sur le projet.
+    <br><br>Petite suggestion: Peut-on nous donner la chance à l'utilisateur d'ajouter ses propres
+    retrouvailles (des trucs qui ne sont pas déjà dans l'app)? 
+    Je pense que ça pourrait être une bonne idée! (dependamment de combien de travail ça demande 
+    de faire ça, bien sûr)
+
+  </p>
+
+  <h2>Semaine 2 (11-17 Mai)</h2>
+  <p>Rencontre avec l'équipe de développement.
+    On a discuté des fonctionnalités à implémenter et des 
+    améliorations à apporter à l'interface utilisateur.
+  </p>
+  <p>
+    Après notre rencontre, Christian m'a aidé à installer le code base sur mon ordinateur. <br>
+    On n'a pas pu installer la version Linux (code incompatible avec windows), fixé par Christian.
+    J'ai vu les changements faits par Christian au serveur pour que ça marche sur windows, donc
+    il fallait juste nelever les ";" des noms de fichiers. <br>
+    Je vais aussi vérifier comment mettre le rapport en ligne et envoyer le lien à l'équipe sur Element.
+    Durant la rencontre du jeudi 14 Mai, la plupart des tâches discutées ont été données à Mariama.
+    Ce qui me concerne sera plus discuté Lundi prochain.
+    J'ai demandé aussi à Frank de faire comme un tutoriel de GitHub ensemble (pour se motiver)
+    pour mieux comprendre comment l'utiliser. J'ai pas encore reçu de réponse, et donc 
+    j'ai déjà essayé de l'utiliser et donc j'ai eu une petite idée de comment ça marche, 
+    mais je suis encore down pour faire un tutoriel ensemble (ça sera plus fun).<br><br>
+    Update: J'ai fait un petit tour sur github tout seul, et j'ai réussi à faire 
+    un commit et un push. Je suis content de moi! 
+    J'ai pu mettre le rapport en ligne aussi, et je vais envoyer le lien à l'équipe sur Element.
+  </p>
+
+  <h2>Semaine 3 (18-24 Mai)</h2>
+  <p>
+    Pas de réponse de Frank. J'ai fait github tout seul, j'éspère que c'est pas mal.
+    On a discuté des trucs à améliorer dans l'application, c'est réduit à trois options:
+    <ol>
+      <li>Faire une petite section FAQ (je pense qu'on peut commencer par ça vu que c'est simple à implémenter)
+        et lier la page confidentialité à la page MONA au lieu de la page générique.
+      </li>
+      <li>Coder pour que l'appli donne des notifications, par jour ou bien pour des oeuvres à proximité (ça en #2)</li>
+      <li>Ajouter des badges de complétion ou bien de "streaks" pour encourager les utilisateurs à utiliser plus souvent l'application</li>
+    </ol>
+    On pourrai jouter une section de "favorites" pour que les utilisateurs puissent sauvegarder leurs oeuvres préférées.
+  </p>
+  <p>Les badges ont finalement été retenus comme priorité. Tâche n°1 : développer le système de badges.
+    J'attends l'accès au Figma pour pouvoir commencer à travailler sur les designs des badges. 
+    J'ai aussi demandé à Christian si on a besoin de faire une session de code ensemble pour qu'on le fasse.
+    Finalement, pas de travail sur les badges pour le moment, on fait d'autres trucs simples pour que je
+    m'habitue au code base et à l'organisation du projet.
+  </p>
+  <h2>Semaine 4 (25-31 Mai)</h2>
+  <p>
+    J'ai reçu l'accès au Figma pour l'un des liens. Dernier travail "setup" va être de verifier un truc
+    d'API avec Christian. 
+    Je suis pas mal à l'aise avec Github commands (YAY!), et j'ai finalement fait un pull request pour le projet Mona.
+    Mon premier but de bien naviguer les documents et les fichiers du projet est atteint à l'aide de la clarité
+    des noms des fichiers et du code bien organisé et parfaitement commenté. Merci Christian pour ça!
+    Finalement, ma tâche de cette semaine etait de modifier la section de bouton "Photographier" 
+    pour qu'elle soit dans la section découverte.<br>
+    J'ai appris beaucoup sur le code base et Vue, et j'ai pu faire ce changement.<br>
+    Jusqu'à présent, le PR m'a pris le plus longtemps et fallait faire la issue avant de tout avoir modifié.
+    </p>
+
+    <h2>Semaine 5 (1-7 Juin)</h2>
+    <p>
+      Une petite faute de ma part, il fallait que la section découverte doit toute cliquable, et aussi
+      que le bouton de photographier doit être dans la section découverte. J'ai fait les changements nécessaires
+      pour que ça soit comme ça, et j'ai fait un nouveau PR pour ça. 
+      J'ai aussi fait un petit changement de design pour que le bouton de photographier soit 
+      bien positionné dans sa section. Et fallait faire la même chose pour la section AVANT de 
+      cliquer sur fiche complète(meeting was on 4 Juin). Je vais faire cela ici la semaine prochaine.
+      <br><br>
+      Je revoit un code fix que Christian a fait pour "Clear app data on logout". Tout va bien pour le
+      moment, j'ai approuvé son request (aussi mon premier PR approval!). <br>
+      Je voulais aussi participer à l'exposition Hochelaga mais j'aurai un meeting d'immigration important,
+      et donc malheureusement je ne pourrai pas y participer. Cette participation allait m'aider à
+      avoir des notes de terrain sur les gens et leur experience avec l'application MONA.
+      J'espère que ça va bien se passer pour les autres membres de l'équipe qui y participent 
+      et que je receverai les updates!
+      La prochaine rencontre sera le mercredi 10 Juin au lieu du Jeudi, je fera ces changements le Lundi et
+      je vérifie si on a besoin d'autre chose, sinon je test l'app chez moi pour trouver d'autres fixes à faire.
+      <br><br>
+      Voici à quoi ressemble le bouton de photographier dans la section découverte après les changements:
+    </p>
+    <img src="button-photografier.png" alt="PhotoButton" style="width: 100%; max-width: 400px;" />
+
+    <h2>Semaine 6 (8-14 Juin)</h2>
+    <p>J'ai finalement accès au Figma complet. On attend que la personne
+      en charge de Figma de revenir de vacances pour qu'on aie une confirmation
+      finale sur le code du bouton. Les badges sont déjà dans l'appli.<br>
+      Christian m'a aussi montré en théorie comment faire une release sur 
+      android studio, et la prochaine fois on le ferai ensemble pour que
+      vois comment ça marche en personne.  <br>
+      Pour le moment, nous avons décidé que je vais travailler 
+      sur la <span style="font-weight: bold; color: #0ae902;">"gameification" de l'application</span>, et donc après une petite 
+      comparaison avec d'autres applications comme bixi et duolingo, 
+      je prépare une petite présentation pour expliquer comment on va faire ça:<br>
+      <ul>
+        <li>Je propose des notifications de différent types: 
+          <ol>
+            <li>Notifications hébdomadaires de progression / rappel de streak</li>
+            <li>Informer les utilisateurs des oeuvres d'art à proximité (localisation)</li>
+            <li>Après fermeture de l'application, comme l'app bixi</li>
+          </ol>
+        </li>
+        <li>Faire un widget simple pour l'application comme celui
+          de duolingo. Le widget de MONA va être plus sur les oeuvres d'art à proximité</li>
+        </li>
+      </ul>
+      Photo de ma présentation canva pour le widget de MONA: <br>
+      <img src="widget-idea.png" alt="WidgetMona" style="max-width: 20vw;" />
+    </p>
+
+    <h3>Personal user feedback</h3>
+    <p class="feedback">J'ai vu que "filtrer par distance" ne fonctionne pas assez bien, j'ai averti
+      l'équipe et je vais voir si le groupe serveur prend en compte cette demande, ou
+      si c'est un problème de chez moi.
+    </p>
+    <h2>Semaine 7- 8(15-28 Juin)</h2>
+    <p>
+      J'ai fait la présentation de mon idée de "gameification" de l'application MONA.
+      Finalement, on va commencer avec notifications de géolocalisation. Vu que j'ai 
+      beaucoup d'examens, je n'ai pas pu commencer le travail, et donc à la 10ème 
+      semaine je vais commencer à travailler sur ça.
+      Je progresse lentement, Je ne pouvait pas présenter l'idée à l'équipe Mobile car
+      Christian fait face à des problèmes de démenagement, et Lena etait à Kingston pour le travail,
+      ce qui fait que mon équipe au complet n'etait pas disponible pour la rencontre. 
+      J'ai fait une présentation à Anissa et Mariama en serveur puis pour le reste de l'équipe
+      après leur retour le 25 Juin (Christian exclus). <br>
+      En tout cas j'ai reçu des commentaires positifs sur mon idée, 
+      quelques suggestions de Lena sur Ionic, et je vais commencer à 
+      travailler sur ça à la 10ème semaine car la semaine prochaine je serai en vacances avec 
+      ma famille.
+
+
+      <h2>Semaine 9 (29 Juin - 5 Juillet)</h2>
+      <p style="font-size: 24px;">Congé hors Montréal</p>
+
+      <h2>Semaine 10 (6 Juillet - 12 Juillet)</h2>
+      Après vérification de la possibilité de faire des notifications avec
+      géolocalisation, j'ai decidé de faire les notifications selon les conditions suivantes:
+
+      <br> <strong>Comment seront faites les notifications? L'appli va vérifier:</strong> <br>
+
+      <ul>
+        <li>Distance entre l'utilisateur et les/l'oeuvre(s) d'art </li>
+        <li>Densité d'oeuvres d'art / patrimoines non-photografiés dans la zone</li>
+        <li>Si l'utilisateur a déjà photographié l'oeuvre d'art</li>
+      </ul>
+      Si les conditions sont remplies, l'utilisateur recevra une notification de type (pas encore décidée):<br>
+      <span style="font-weight: bold; color: #ff0000;">
+        "Vous êtes à proximité d'une oeuvre d'art publique"</span> et
+      <span style="font-weight: bold; color: #ff0000;">
+        "Vous êtes à proximité d'une oeuvre d'art publique que vous n'avez pas encore photographié"</span>.
+    </p>
+    <p>Les détails sur la mise en œuvre est expliquée dans ce graphe de décision
+      de manière simple:</p>
+    <img src="Gdecision.png" alt="Graphe de décision" style="max-width: 50vw;"/>
+
+    <h2>Semaine 11 (13 Juillet - 19 Juillet)</h2>
+    <p>Après avoir fait des recherches sur les notifications de géolocalisation, j'ai trouvé que
+      chez Apple, c'est un peu plus compliqué que chez Android, et donc je recherche les meilleures pratiques
+      pour implémenter ces notifications.
+      En tout cas, j'ai commencé à travailler sur les notifications de géolocalisation pour Android, et je vais
+      continuer à travailler sur ça pour la semaine prochaine. J'ai aussi fait un petit test pour 
+      vérifier si les notifications de géolocalisation fonctionnent sur Android, et ça fonctionne bien.
+      <br><br>
+      <strong>Problème rencontré:</strong> J'ai trouvé que les notifications fonctionnent seulement
+    s'il y a beaucoup d'oeuvres d'art dans la zone, dans une proximité spécifique. Si j'ai je temps, je vais
+  régler ce problème avec l'aide de Christian CETTE SEMAINE. Sinon début semaine prochaine.
+    <br>
+    Voici les photos de mon progrès! Je suis super fier de moi-même! <br>
+    <img src="notif-back.png" alt="Notification1" style="max-width: 50vw; margin-right: 20%;"/>
+    <img src="notif-map.png" alt="Notification2" style="max-width: 50vw;"/>
+    </p>
+
+      <h2>Semaine 12 (20-26 Juillet)</h2>
+      <h3>Notifs codage</h3>
+      <p>
+        Les notifications sont presque complètement fonctionnelles mais uniquement en mode foreground (dans l'application). 
+        Lors de notre réunion de conception avec Barbara, qui vient tout juste de revenir de vacances, nous avons 
+        finalisé le design des notifications : nous avons décidé d'intégrer une mascotte MONA amicale et de 
+        supprimer le doublon "MONA" qui apparaissait deux fois dans chaque notification. Cependant, 
+        les notifications en arrière-plan ne fonctionnent pas encore et nécessitent davantage de travail. 
+        Lors de cette même réunion de conception, nous avons également prévu d'ajouter une nouvelle page dans 
+        l'application dédiée aux préférences d'horaire des notifications. Par défaut, cette plage sera définie 
+        de 21h à 9h (heures de silence), mais les utilisateurs pourront personnaliser ces horaires selon leurs 
+        préférences personnelles. J'attends la confirmation de l'équipe de conception pour finaliser le design 
+        de cette page, après quoi je pourrai commencer. 
+        <br><br>
+        <h3>Documentation et recherche: </h3>
+        J'ai également commencé à travailler sur la documentation technique pour l'implémentation des 
+        notifications en arrière-plan, en particulier sur la manière de gérer les services de localisation 
+        persistants sur iOS et Android.
+        <h3>Test et problème rencontré</h3>
+        <br>
+        Finalement, j'ai testé les notifications mais j'ai trouvé des nouveaux bugs: elles se font à chaque
+        2 minutes au lieu de 30 secondes (testing time mode). Après avoir fait des recherches, j'ai trouvé que 
+        c'est un problème de mon code, j'ai pas mis autant de conditions pour arrêter les 
+        notifications "temporairement" pour un cooldown time (30 secondes ici). 
+        Je vais donc chercher une autre solution pour régler ce problème.
+      </p>
+
+      <h2>Semaine 13 (27 Juillet - 2 Août)</h2>
+      <h3>Notification foreground complétée + background notifs code:</h3>
+      <p>
+        Cette semaine, j'ai concentré mes efforts sur recherche pour implémenter les notifications en arrière-plan
+        sur Android et Apple (Apple sont beaucoup plus restrictifs), en parallèle au travail sur foreground.
+        J'ai créé la documentation interne dans backgroundNotifications.ts décrivant 
+        son architecture, puis procédé aux modifications nécessaires des fichiers de configuration 
+        spécifiques à chaque plateforme : le Info.plist pour iOS et le AndroidManifest.xml pour Android afin 
+        d'activer les services de localisation persistants. 
+        <br>
+        <h3>Recherche et implémentation: </h3>
+        J'ai ensuite intégré le plugin @capacitor-community/background-geolocation qui fournit 
+        exactement les fonctionnalités natives dont 
+        nous avions besoin. Cependant, comme anticipé, ce que je n'ai pas pu finaliser concerne l'étape 
+        CocoaPods pour iOS et les réglages Xcode car ils nécessitent un environnement macOS. 
+        Sur macOS, il faudra donc faire un cd ios/App suivi de pod install puis ouvrir App.xcworkspace pour 
+        activer dans Xcode les Background Modes → Location Updates et configurer la demande d'autorisation 
+        "Toujours". Donc quand je finis, je vais documenter les etapes pour que l'équipe puisse les suivre sur macOS.
+        Je vais aussi essayer de travailler avec Christian pour tout tester sur son iOS.
+      </p>
+      <h3>UX/UI discuté avec Barbara:</h3>
+      <p>J'ai obtenu l'accès à Mobbin où j'ai effectué des tests benchmarks avec deux applications de référence : 
+        Slack pour analyser leurs interfaces de préférences de notifications modernes et l'application native 
+        d'alarme iOS pour étudier leurs systèmes de timers et de sélecteurs d'horaires. Ces analyses ont été 
+        cruciales pour comprendre les meilleures pratiques en matière d'UX pour les préférences de notifications 
+        utilisateur.
+      </p>
+      <p>
+        <img src="Mobbin.png" alt="Mobbin Testbench: Sla" style="max-width: 50vw; margin: 10px 0;">
+      </p>
+      <p>
+        En parallèle, j'ai utilisé Canva pour créer une maquette détaillée de l'interface des préférences 
+        de notifications de l'application Mona, en intégrant nos mascottes Figma existantes. Cette 
+        maquette permet de visualiser comment les éléments de notification préférés (mascotte MONA,
+        emojis, texte explicatif) s'intégreraient harmonieusement dans l'expérience globale de l'app, 
+        tout en respectant les principes d'accessibilité et de clarté.
+      </p>
+      <p>
+        <img src="My design.png" alt="Canva Design: Notification Preferences Interface with MONA Mascots" style="max-width: 50vw; margin: 10px 0;">
+      </p>
+
+      <h2>Semaine 14 (3-9 Août)</h2>
+      <h3>Notifications arrière plan: implementation et testes</h3>
+      <p>
+        Cette semaine, j'ai finalisé l'implémentation des notifications en arrière-plan sur Android. J'ai testé 
+        le code sur un appareil simulé sur Android Studio et confirmé que les notifications se déclenchent 
+        correctement même lorsque l'application est en arrière-plan ou fermée. J'ai également documenté 
+        les étapes nécessaires pour configurer les services de localisation persistants sur Android, 
+        afin que l'équipe puisse reproduire le processus sur d'autres appareils.
+        <br><br>
+        Voici les images de la notification en arrière-plan sur Android:
+        <img src="background-notif-android.png" alt="Background Notification on Android" style="max-width: 50vw; margin: 10px 0;">
+        en plus, les permissions dont là officiellement! Si l'appli est nouvellement téléchargée, l'utilisateur va 
+        finalement recevoir une notification pour accepter les permissions de géolocalisation ("Always allow") 
+        et de notifications. Vu que dan mon simulateur, l'application est déjà installée, j'ai dû faire une 
+        activation dans "Settings → Apps → Mona → Permissions" pour les activer:
+      </p>
+        <img src="always-allow.png" alt="Background Notification Permissions on Android" style="max-width: 50vw; margin: 10px 0;">
+        
+      <h3>pour jonathan : ADD PHOTO BACKGROUND LOCATION ICON</h3>
+
+</body>
+</html>
+

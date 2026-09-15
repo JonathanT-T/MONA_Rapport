@@ -316,20 +316,131 @@
       <p>
         Cette semaine, j'ai finalisé l'implémentation des notifications en arrière-plan sur Android. J'ai testé 
         le code sur un appareil simulé sur Android Studio et confirmé que les notifications se déclenchent 
-        correctement même lorsque l'application est en arrière-plan ou fermée. J'ai également documenté 
+        correctement même lorsque l'application est en arrière-plan. J'ai également documenté 
         les étapes nécessaires pour configurer les services de localisation persistants sur Android, 
         afin que l'équipe puisse reproduire le processus sur d'autres appareils.
         <br><br>
-        Voici les images de la notification en arrière-plan sur Android:
-        <img src="background-notif-android.png" alt="Background Notification on Android" style="max-width: 50vw; margin: 10px 0;">
-        en plus, les permissions dont là officiellement! Si l'appli est nouvellement téléchargée, l'utilisateur va 
+        Voici une image de la notification en arrière-plan sur Android: </p>
+        <img src="notif-back.png" alt="Background Notification on Android" style="max-width: 10vw; margin: 10px 0;">
+        <p>en plus, les permissions dont là officiellement! Si l'appli est nouvellement téléchargée, l'utilisateur va 
         finalement recevoir une notification pour accepter les permissions de géolocalisation ("Always allow") 
         et de notifications. Vu que dan mon simulateur, l'application est déjà installée, j'ai dû faire une 
         activation dans "Settings → Apps → Mona → Permissions" pour les activer:
       </p>
         <img src="always-allow.png" alt="Background Notification Permissions on Android" style="max-width: 50vw; margin: 10px 0;">
         
-      <h3>pour jonathan : ADD PHOTO BACKGROUND LOCATION ICON</h3>
+
+      <h2>Période du 10 au 16 Août</h2>
+      <h3>Retour sur une régression du code</h3>
+      <p>
+        Pendant cette période, j'ai installé un nouvel outil, Claude-fcc, sur mon ordinateur et
+        je l'ai utilisé directement sur le projet sans avoir créé de branche ni fait de commit
+        avant de commencer. Cela a malheureusement modifié plusieurs parties du code et rendu
+        certaines fonctionnalités instables. J'ai donc dû reprendre une bonne partie du travail,
+        retrouver ce qui avait été changé et réécrire les morceaux nécessaires.
+        <br><br>
+        Pour vérifier que les corrections fonctionnaient vraiment, j'ai fait beaucoup de tests
+        sur un téléphone Android simulé avec Logcat. J'ai suivi les événements de géolocalisation, les
+        réveils de l'application et l'envoi des notifications afin de comprendre précisément
+        ce qui ne fonctionnait plus et de rétablir une version stable. Cette expérience m'a aussi
+        rappelé l'importance de créer une branche de travail et de faire des commits réguliers
+        avant d'essayer des modifications importantes.
+      </p>
+
+      <h2>Période du 17 au 27 Août</h2>
+      <h3>Période sans développement</h3>
+      <p>
+        Je n'ai pas pu travailler sur le projet pendant cette période parce que j'avais mon
+        tribunal final concernant mon immigration. J'ai eu plusieurs rencontres avec mon avocat
+        pour préparer le dossier et discuter des étapes du tribunal, avec mes examens finals 
+        ce qui ne me laissait pas suffisamment de temps pour continuer le développement.
+        <br> J'aimerai bien remercier Lena, Profs Lapalme et Hahn et Lafontant pour leur compréhension et leur 
+        soutien pendant cette période difficile.
+      </p>
+
+      <h2>Période du 28 Août au 6 Septembre</h2>
+      <h3>Notifications natives et géorepérage Android</h3>
+      <p>
+        Cette période a été consacrée à la découverte d'une solution plus fiable pour les
+        notifications lorsque l'application est en arrière-plan ou complètement fermée. J'ai
+        étudié le fonctionnement des notifications natives Android et du géorepérage
+        (<em>geofencing</em>). Au lieu de garder une surveillance GPS continue en JavaScript,
+        l'application demande maintenant à Android de surveiller une zone et de réveiller
+        l'application lorsqu'une frontière est franchie.
+        <br><br>
+        J'ai créé le récepteur Android qui traite ces événements, ainsi que le système de
+        notifications natives qui peut fonctionner même lorsque le processus JavaScript de
+        l'application n'est plus actif. J'ai aussi travaillé sur le réenregistrement du
+        géorepérage après chaque événement et sur la lecture des données locales nécessaires
+        pour décider si une notification doit être envoyée.
+        <br><br>
+        En parallèle, j'ai remplacé les anciennes règles de proximité par trois zones de
+        distance : une zone immédiate de 0 à 299 mètres, une zone intermédiaire de 300 à
+        500 mètres et une zone plus éloignée de 501 mètres à 1 kilomètre. Les règles tiennent
+        compte du nombre d'œuvres non collectées dans chaque zone, des œuvres déjà notifiées
+        et des délais d'attente entre deux notifications.
+        <br><br>
+        J'ai testé toutes ces étapes avec Logcat et sur un vrai téléphone Android, notamment
+        lorsque l'application était en arrière-plan et après avoir été retirée des applications
+        récentes. Ces tests m'ont permis de confirmer que le récepteur natif pouvait recevoir
+        les événements et envoyer une notification sans dépendre du fonctionnement normal de
+        l'interface JavaScript qui usait la batterie rapidement et rechauffait le téléphone, et donc
+        je l'ai enlevé pour ne plus l'utiliser.
+      </p>
+
+      <h2>Période du 7 au 14 Septembre</h2>
+      <h3>Tests avancés et amélioration des notifications</h3>
+      <p>
+        Cette dernière période a surtout servi à tester et améliorer le système de notifications.
+        J'ai d'abord retravaillé les textes pour les rendre plus clairs et plus agréables à lire.
+        Les notifications utilisent maintenant des titres courts, des descriptions en français,
+        des emojis et une indication de la distance entre l'œuvre la plus proche et la plus
+        éloignée dans la zone concernée. J'ai aussi adapté l'affichage Android pour que le texte
+        puisse être développé dans une notification plus grande.
+        <br><br>
+        J'ai ensuite étudié la méthode de <em>dwell</em>, qui déclenche un événement lorsqu'un
+        utilisateur reste dans une zone pendant un certain temps. J'ai essayé de l'intégrer
+        pour voir si elle pouvait améliorer les notifications, mais les tests ont montré qu'elle
+        provoquait des vérifications trop fréquentes et interférait avec les événements
+        d'entrée et de sortie du géorepérage. J'ai donc retiré cette méthode et conservé
+        uniquement les transitions d'entrée et de sortie, qui sont plus adaptées à notre objectif
+        et évitent une surveillance inutile de la position.
+        <br><br>
+        J'ai également ajouté et testé une règle de repli pour les zones rurales : lorsqu'il y a
+        moins de quatre œuvres dans un rayon d'un kilomètre, l'application regarde la zone de
+        un à deux kilomètres. Elle peut envoyer une notification s'il y a très peu d'œuvres
+        supplémentaires, puisque l'utilisateur risque de ne rien trouver prochainement.
+        <br><br>
+        Finalement, j'ai retiré la période silencieuse qui bloquait les notifications entre 21 h
+        et 9 h. Les tests ont aussi porté sur l'ouverture et la fermeture rapide de l'application,
+        la remise à zéro du délai global et le déplacement immédiat après la fermeture. Une course
+        entre le retrait et le réenregistrement du géorepérage a été identifiée, puis réduite en
+        utilisant une seule opération de recentrage. Les tests Logcat sur un vrai téléphone ont
+        confirmé que les événements et les notifications continuent de fonctionner même après
+        avoir fermé l'application rapidement. Voici une photo qui montre les logcats: (ils sont 
+        un peu longs, mais on peut voir que les notifications sont bien envoyées même après la 
+        fermeture de l'application)
+      </p>
+      <img src="logcat-native-geofence-1.png" alt="Logcat Notifications" style="max-width: 60vw; margin: 10px 0;">
+
+      <h2>Semaine 15 (15-21 Septembre)</h2>
+      <h3>Version de test et présentation finale</h3>
+      <p>
+        Cette semaine, j'ai préparé une version de test des nouvelles notifications avec
+        Christian. Il a pu essayer l'application et m'a confirmé que le code fonctionnait
+        vraiment bien, notamment pour les notifications Android en arrière-plan et après la
+        fermeture de l'application.
+        <br><br>
+        Cette version sera maintenant disponible pour que toute l'équipe puisse tester cette
+        nouvelle fonctionnalité. Les dernières finitions concernant les notifications seront
+        faites après ma présentation finale, qui aura lieu dans deux jours. Cela permettra de
+        recueillir les commentaires de l'équipe au complet avant de faire les derniers ajustements.
+      </p>
+
+      <br><br>
+      <p style="font-size: larger; color: #5c5a00;">Merci à tous pour votre soutien et vos commentaires, 
+        merci pour cette expérience agréable et enrichissante et j'éspère que celui/celle 
+        qui va lire ce message, que vous en bénéficierez aussi &lt;3. </p>
 
 </body>
 </html>
